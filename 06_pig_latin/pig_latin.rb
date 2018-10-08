@@ -3,37 +3,36 @@
 # désolé
 
 def translate(text)
-sentence = Array.new
-text.split.each do |word|
+  sentence = Array.new
+  text.split.each do |word|
     if word =~ /qu/
-      @c = 0
+      c = 0
       loop do
-        if word[@c] == "u"
+        if word[c] == "u"
           break
         else
-          @c = @c + 1
+          c = c + 1
         end
-                     end
-    word = word[@c+1..-1] + word[0..@c] + "ay"
-    sentence.push(word)
+      end
+      word = word[c+1..-1] + word[0..c] + "ay"
+      sentence.push(word)
     elsif word[0] == "a" || word[0] == "e" || word[0] == "i" || word[0] == "o" || word[0] == "u" || word[0] == "y"
       word = word + "ay"
       sentence.push(word)
     else
-      @c = 0
+      c = 0
       loop do
-        if word[@c] == "a" || word[@c] == "e" || word[@c] == "i" || word[@c] == "o" || word[@c] == "u" || word[@c] == "y"
+        if word[c] == "a" || word[c] == "e" || word[c] == "i" || word[c] == "o" || word[c] == "u" || word[c] == "y"
           break
         else
-          @c = @c + 1
+          c = c + 1
         end
-                     end
-    word = word[@c..-1] + word[0..@c-1] + "ay"
-    sentence.push(word)
+      end
+      word = word[c..-1] + word[0..c-1] + "ay"
+      sentence.push(word)
     end
-
-                end
-                sentence.join(" ")
+  end
+  sentence.join(" ")
 end
 
 =begin
